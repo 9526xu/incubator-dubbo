@@ -122,6 +122,12 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 			f.cancel();
 		}
 	}
+    private void removeFailedUnregistered(URL url) {
+            FailedUnregisteredTask f = failedUnregistered.remove(url);
+        if (f != null) {
+            f.cancel();
+        }
+    }
 
 	protected void addFailedSubscribed(URL url, NotifyListener listener) {
 		Holder h = new Holder(url, listener);
