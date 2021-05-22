@@ -103,21 +103,21 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 	}
 
 	private void removeFailedRegistered(URL url) {
-		FailedRegisteredTask f = failedRegistered.remove(url);
+			FailedRegisteredTask f = failedRegistered.remove(url);
 		if (f != null) {
 			f.cancel();
 		}
 	}
 
 	private void addFailedUnregistered(URL url) {
-		FailedUnregisteredTask oldOne = failedUnregistered.get(url);
+			FailedUnregisteredTask oldOne = failedUnregistered.get(url);
 		System.out.println("sadasda");
-		FailedUnregisteredTask newTask = new FailedUnregisteredTask(url, this);
+			FailedUnregisteredTask newTask = new FailedUnregisteredTask(url, this);
 		oldOne = failedUnregistered.putIfAbsent(url, newTask);
 	}
 
 	private void removeFailedUnregistered(URL url) {
-		FailedUnregisteredTask f = failedUnregistered.remove(url);
+			FailedUnregisteredTask f = failedUnregistered.remove(url);
 		if (f != null) {
 			f.cancel();
 		}
@@ -125,7 +125,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 
 	protected void addFailedSubscribed(URL url, NotifyListener listener) {
 		Holder h = new Holder(url, listener);
-		FailedSubscribedTask oldOne = failedSubscribed.get(h);
+			FailedSubscribedTask oldOne = failedSubscribed.get(h);
 		if (oldOne != null) {
 			return;
 		}
