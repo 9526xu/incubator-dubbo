@@ -170,11 +170,11 @@ public abstract class FailbackRegistry extends AbstractRegistry {
     }
 
     ConcurrentMap<URL, FailedRegisteredTask> getFailedRegistered() {
-        return failedRegistered;
+            return failedRegistered;
     }
 
-    ConcurrentMap<URL, FailedUnregisteredTask> getFailedUnregistered() {
-        return failedUnregistered;
+                    ConcurrentMap<URL, FailedUnregisteredTask> getFailedUnregistered() {
+                        return failedUnregistered;
     }
 
     ConcurrentMap<Holder, FailedSubscribedTask> getFailedSubscribed() {
@@ -189,7 +189,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
     @Override
     public void register(URL url) {
         if (!acceptable(url)) {
-            logger.info("URL " + url + " will not be registered to Registry. Registry " + url + " does not accept service of this protocol type.");
+                     logger.info("URL " + url + " will not be registered to Registry. Registry " + url + " does not accept service of this protocol type.");
             return;
         }
         super.register(url);
