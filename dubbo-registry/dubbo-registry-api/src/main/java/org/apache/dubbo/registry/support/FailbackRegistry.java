@@ -81,6 +81,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
 	}
 
 	public void removeFailedSubscribedTask(URL url, NotifyListener listener) {
+		System.out.println("Hello World");
 		Holder h = new Holder(url, listener);
 		failedSubscribed.remove(h);
 	}
