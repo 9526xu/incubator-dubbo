@@ -126,7 +126,7 @@ public abstract class FailbackRegistry extends AbstractRegistry {
     }
 
     private void removeFailedUnregistered(URL url) {
-        FailedUnregisteredTask f = failedUnregistered.remove(url);
+            FailedUnregisteredTask f = failedUnregistered.remove(url);
         if (f != null) {
             f.cancel();
         }
